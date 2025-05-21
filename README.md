@@ -14,19 +14,51 @@
 
 ## 📖 Overview
 
-- **ChatDev** stands as a **virtual software company** that operates through various **intelligent agents** holding
-  different roles, including Chief Executive Officer <img src='visualizer/static/figures/ceo.png' height=20>, Chief Product Officer <img src='visualizer/static/figures/cpo.png' height=20>, Chief Technology Officer <img src='visualizer/static/figures/cto.png' height=20>, Programmer <img src='visualizer/static/figures/programmer.png' height=20>, Reviewer <img src='visualizer/static/figures/reviewer.png' height=20>, Tester <img src='visualizer/static/figures/tester.png' height=20>, Art designer <img src='visualizer/static/figures/designer.png' height=20>. These
-  agents form a multi-agent organizational structure and are united by a mission to "revolutionize the digital world
-  through programming." The agents within ChatDev **collaborate** by participating in specialized functional seminars,
-  including tasks such as designing, coding, testing and documenting.
-- The primary objective of ChatDev is to offer an **easy-to-use**, **highly customizable** and **extendable** framework,
-  which is based on large language models (LLMs) and serves as an ideal scenario for studying and understanding collective intelligence.
+**ChatDev** has evolved! It's now an **interactive Single Page Application (SPA)** that empowers you to visually create, manage, and interact with intelligent agents and their customizable "digital pets." This new platform provides a dynamic way to explore multi-agent systems, leveraging:
 
+-   A **React-based frontend** for a responsive user experience.
+-   **Gun.js** for decentralized real-time data synchronization and user authentication.
+-   **Three.js** for visualizing customizable "pets" associated with your agents.
+-   A powerful **Python backend (Flask-based API)** that handles core agent logic, LLM interactions (via CAMEL AI), and complex task processing.
+
+While retaining its core philosophy of simulating a virtual software company with various intelligent agents (CEO, CPO, CTO, Programmer, etc.), ChatDev now focuses on providing a hands-on, visual environment for:
+
+-   **Interactive Agent Creation:** Define agent roles, system prompts, and LLM models through the UI.
+-   **Pet Customization:** Design unique visual companions (pets) for your agents using parameters that control their Three.js rendering.
+-   **Real-time Collaboration (Conceptual):** While direct agent-to-agent software generation is evolving, the platform supports user-to-agent chat and task delegation.
+-   **Decentralized Identity:** User accounts and agent/pet data are managed via Gun.js.
+
+The primary objective of ChatDev is to offer an **easy-to-use**, **highly visual**, and **extendable** framework for building and experimenting with LLM-powered agents and their capabilities. It serves as an ideal platform for studying human-agent interaction, agent design, and decentralized application concepts.
+
+*(Placeholder for a new GIF/screenshot of the SPA dashboard)*
 <p align="center">
-  <img src='./misc/company.png' width=600>
+  <img src='./misc/company.png' width=600> 
+  *(Note: This image reflects the original ChatDev concept; new visuals for the SPA are pending.)*
 </p>
 
+## ✨ Key Features
+
+*   **Single Page Application (SPA):** Modern, responsive interface built with React.
+*   **Decentralized User Authentication:** Secure user accounts and data handling via Gun.js and SEA (Security, Encryption, Authorization).
+*   **Interactive Agent Creation & Management:**
+    *   Define agent names, roles/descriptions, system prompts, and select LLM models through the UI.
+    *   Agents are saved and listed for each user.
+*   **Customizable "Pets" for Agents:**
+    *   Design visual companions (pets) for agents using configurable parameters (color, shape, size) rendered with Three.js.
+    *   Pets are created and managed in the "Toolbox."
+*   **Agent Interaction:**
+    *   Engage in chat conversations with your created agents.
+    *   Backend API (`/api/v1/agent/invoke`) processes messages and returns agent replies.
+*   **Task Delegation to Pets (Conceptual):**
+    *   The `/api/v1/agent/create_pet_task` endpoint allows delegating tasks to pets, which are essentially specialized agent configurations.
+*   **Prompt Self-Improvement:**
+    *   Utilize the `/api/v1/llm/self_improve_prompt` endpoint to refine your prompts using an LLM.
+*   **Python Flask Backend:** Handles core logic, LLM communication (CAMEL AI integration), and API services.
+*   **Modular Component Structure:** `AuthPage`, `DashboardComponent`, `AgentListComponent`, `AgentCreationComponent`, `AgentInteractionComponent`, `ChatViewComponent`, `ToolboxComponent`, `PetFormComponent`, `PetSpriteComponent`.
+
 ## 🎉 News
+*(This section contains recent updates related to the broader ChatDev project and its research. Some features mentioned might pertain to the original command-line framework or ongoing research not yet fully integrated into the SPA.)*
+
 **•June 25, 2024: 🎉To foster development in LLM-powered multi-agent collaboration🤖🤖 and related fields, the ChatDev team has curated a collection of seminal papers📄 presented in a [open-source](https://github.com/OpenBMB/ChatDev/tree/main/MultiAgentEbook) interactive e-book📚 format. Now you can explore the latest advancements on the [Ebook Website](https://thinkwee.top/multiagent_ebook) and download the [paper list](https://github.com/OpenBMB/ChatDev/blob/main/MultiAgentEbook/papers.csv).**
   <p align="center">
   <img src='./misc/ebook.png' width=800>
@@ -38,176 +70,165 @@
   </p>
 
 <details>
-<summary>Old News</summary>
+<summary>Older News (Contextual)</summary>
+*(These news items primarily relate to the original command-line version of ChatDev or research initiatives. The new SPA builds upon these concepts but offers a different user experience.)*
 
-• May 07, 2024, we introduced "Iterative Experience Refinement" (IER), a novel method where instructor and assistant agents enhance shortcut-oriented experiences to efficiently adapt to new tasks. This approach encompasses experience acquisition, utilization, propagation and elimination across a series of tasks and making the pricess shorter and efficient. Our preprint paper is available at https://arxiv.org/abs/2405.04219, and this technique will soon be incorporated into ChatDev.
+• May 07, 2024: Introduction of "Iterative Experience Refinement" (IER). Paper: https://arxiv.org/abs/2405.04219.
   <p align="center">
   <img src='./misc/ier.png' width=220>
   </p>
 
-• January 25, 2024: We have integrated Experiential Co-Learning Module into ChatDev. Please see the [Experiential Co-Learning Guide](wiki.md#co-tracking).
+• January 25, 2024: Integration of Experiential Co-Learning Module. Original Guide: [Experiential Co-Learning Guide](wiki.md#co-tracking).
 
-• December 28, 2023: We present Experiential Co-Learning, an innovative approach where instructor and assistant agents accumulate shortcut-oriented experiences to effectively solve new tasks, reducing repetitive errors and enhancing efficiency.  Check out our preprint paper at https://arxiv.org/abs/2312.17025 and this technique will soon be integrated into ChatDev.
+• December 28, 2023: Experiential Co-Learning preprint. Paper: https://arxiv.org/abs/2312.17025.
   <p align="center">
   <img src='./misc/ecl.png' width=860>
   </p>
-• November 15, 2023: We launched ChatDev as a SaaS platform that enables software developers and innovative entrepreneurs to build software efficiently at a very low cost and remove the barrier to entry. Try it out at https://chatdev.modelbest.cn/.
+• November 15, 2023: Launch of ChatDev as a SaaS platform (Note: The new SPA described here is a separate, local application). Original SaaS: https://chatdev.modelbest.cn/.
   <p align="center">
   <img src='./misc/saas.png' width=560>
   </p>
 
-• November 2, 2023: ChatDev is now supported with a new feature: incremental development, which allows agents to develop upon existing codes. Try ```--config "incremental" --path "[source_code_directory_path]"``` to start it.
+• November 2, 2023: Incremental development feature for the command-line version.
   <p align="center">
   <img src='./misc/increment.png' width=700>
   </p>
 
-• October 26, 2023: ChatDev is now supported with Docker for safe execution (thanks to contribution from [ManindraDeMel](https://github.com/ManindraDeMel)). Please see [Docker Start Guide](wiki.md#docker-start).
+• October 26, 2023: Docker support for the command-line version. Original Guide: [Docker Start Guide](wiki.md#docker-start).
   <p align="center">
   <img src='./misc/docker.png' width=400>
   </p>
-• September 25, 2023: The **Git** mode is now available, enabling the programmer <img src='visualizer/static/figures/programmer.png' height=20> to utilize Git for version control. To enable this feature, simply set ``"git_management"`` to ``"True"`` in ``ChatChainConfig.json``. See [guide](wiki.md#git-mode).
+• September 25, 2023: Git mode for the command-line version. Original Guide: [guide](wiki.md#git-mode).
   <p align="center">
   <img src='./misc/github.png' width=600>
   </p>
-• September 20, 2023: The **Human-Agent-Interaction** mode is now available! You can get involved with the ChatDev team by playing the role of reviewer <img src='visualizer/static/figures/reviewer.png' height=20> and making suggestions to the programmer <img src='visualizer/static/figures/programmer.png' height=20>;
-  try ``python3 run.py --task [description_of_your_idea] --config "Human"``. See [guide](wiki.md#human-agent-interaction) and [example](WareHouse/Gomoku_HumanAgentInteraction_20230920135038).
+• September 20, 2023: Human-Agent-Interaction mode for the command-line version. Original Guide: [guide](wiki.md#human-agent-interaction).
   <p align="center">
   <img src='./misc/Human_intro.png' width=600>
   </p>
-• September 1, 2023: The **Art** mode is available now! You can activate the designer agent <img src='visualizer/static/figures/designer.png' height=20> to generate images used in the software;
-  try ``python3 run.py --task [description_of_your_idea] --config "Art"``. See [guide](wiki.md#art) and [example](WareHouse/gomokugameArtExample_THUNLP_20230831122822).
-• August 28, 2023: The system is publicly available.
-• August 17, 2023: The v1.0.0 version was ready for release.
-• July 30, 2023: Users can customize ChatChain, Phasea and Role settings. Additionally, both online Log mode and replay
-  mode are now supported.
-• July 16, 2023: The [preprint paper](https://arxiv.org/abs/2307.07924) associated with this project was published.
-• June 30, 2023: The initial version of the ChatDev repository was released.
+• September 1, 2023: Art mode for the command-line version. Original Guide: [guide](wiki.md#art).
+• August 28, 2023: Original system publicly available.
+• July 16, 2023: Original [preprint paper](https://arxiv.org/abs/2307.07924) published.
 </details>
 
-## ❓ What Can ChatDev Do?
+## ❓ What Can ChatDev Do Now?
 
-![intro](misc/intro.png)
+The new ChatDev SPA allows you to:
 
-<https://github.com/OpenBMB/ChatDev/assets/11889052/80d01d2f-677b-4399-ad8b-f7af9bb62b72>
+*   **Visually Design Agents:** Instead of command-line flags, use a graphical interface to define agent properties like system prompts, roles, and LLM models.
+*   **Create Customizable "Pets":** Design unique visual companions for your agents using Three.js, defining their appearance through JSON parameters in the Toolbox.
+*   **Interact with Agents:** Chat directly with your created agents, with conversations processed by the Python backend and CAMEL AI.
+*   **Manage Agent and Pet Data:** User-specific data (agents, pets, credentials) is handled decentrally using Gun.js.
+*   **Experiment with Prompt Engineering:** Use the self-improvement tool to refine prompts for better agent performance.
+*   **Explore a Modular Frontend:** The SPA is built with React components, offering a modern user experience.
 
-## ⚡️ Quickstart
+*(Placeholder for a new GIF showing SPA interaction: e.g., creating an agent, then chatting with it, then creating a pet.)*
+*(The original intro.png and video are now less relevant to the SPA's direct functionality but showcase the project's heritage.)*
+![original_intro](misc/intro.png)
 
-### 💻️ Quickstart with Web
 
-Access the web page for visualization and configuration use: https://chatdev.modelbest.cn/
+## ⚡️ Quickstart (SPA & Backend API)
 
-### 🖥️ Quickstart with terminal
+The new ChatDev consists of a Python backend API server and a frontend Single Page Application (SPA).
 
-To get started, follow these steps:
+### 1. Backend Setup (Python API Server)
 
-1. **Clone the GitHub Repository:** Begin by cloning the repository using the command:
+The backend server handles agent logic, LLM interactions, and serves as the brain for your agents.
 
-   ```
-   git clone https://github.com/OpenBMB/ChatDev.git
-   ```
+1.  **Clone the GitHub Repository:**
+    ```bash
+    git clone https://github.com/OpenBMB/ChatDev.git
+    cd ChatDev
+    ```
 
-2. **Set Up Python Environment:** Ensure you have a version 3.9 or higher Python environment. You can create and
-   activate this environment using the following commands, replacing `ChatDev_conda_env` with your preferred environment
-   name:
+2.  **Set Up Python Environment:** (Python 3.9+ recommended)
+    ```bash
+    conda create -n ChatDev_env python=3.9 -y  # Or your preferred method
+    conda activate ChatDev_env
+    ```
 
-   ```
-   conda create -n ChatDev_conda_env python=3.9 -y
-   conda activate ChatDev_conda_env
-   ```
+3.  **Install Dependencies:**
+    The `requirements.txt` file should include `Flask`, `Flask-CORS`, `python-dotenv`, `ecdsa`, and `camel-ai` (and its dependencies like `openai`, `tiktoken`).
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+    *(Ensure your `requirements.txt` is updated for `api_server.py`)*
 
-3. **Install Dependencies:** Move into the `ChatDev` directory and install the necessary dependencies by running:
+4.  **Set Environment Variables:**
+    You'll need an OpenAI API key. Create a `.env` file in the root directory of the project (or where `api_server.py` is located):
+    ```env
+    OPENAI_API_KEY="your_OpenAI_API_key_here"
+    # Optional: Specify LLM model preferences if your API server uses them
+    # OPENAI_MODEL_NAME="gpt-4o-mini" 
+    ```
+    The `api_server.py` will load this using `python-dotenv`.
 
-   ```
-   cd ChatDev
-   pip3 install -r requirements.txt
-   ```
+5.  **Run the API Server:**
+    Navigate to the directory containing `api_server.py` (likely the root of the project now) and run:
+    ```bash
+    python api_server.py
+    ```
+    The server will typically start on `http://localhost:5001` (or the port specified in the script). You should see output indicating it's running.
 
-4. **Set OpenAI API Key:** Export your OpenAI API key as an environment variable. Replace `"your_OpenAI_API_key"` with
-   your actual API key. Remember that this environment variable is session-specific, so you need to set it again if you
-   open a new terminal session.
-   On Unix/Linux:
+### 2. Frontend Setup (SPA - Single Page Application)
 
-   ```
-   export OPENAI_API_KEY="your_OpenAI_API_key"
-   ```
+The frontend is an HTML file that uses React, Gun.js, and Three.js via CDNs.
 
-   On Windows:
+1.  **No Build Step Required:** Since the SPA uses CDN links for its main libraries and the custom JavaScript files (`gunService.js`, `AuthPage.js`, etc.) are directly included, there's no complex build process.
 
-   ```
-   $env:OPENAI_API_KEY="your_OpenAI_API_key"
-   ```
+2.  **Run a Gun.js Relay Peer (Recommended for Data Persistence & Multi-user/Tab Sync):**
+    Gun.js works peer-to-peer in the browser, but for better data persistence across sessions/browsers and for enabling data sync if you open multiple instances, running a local relay peer is highly recommended.
+    *   Install Node.js if you don't have it.
+    *   Install Gun globally or locally: `npm install -g gun` (or `npm install gun` in a dedicated folder).
+    *   Start a simple relay peer:
+        ```bash
+        gun
+        ```
+        This will typically start a peer on `http://localhost:8765/gun`.
+    *   **Note:** The `gunService.js` in the SPA is currently initialized with `const gun = GUN();` which defaults to local storage and peer discovery. For it to reliably use your local relay, you might need to adjust it to `const gun = GUN(['http://localhost:8765/gun']);`. *This change in `gunService.js` is recommended for a stable experience.*
 
-5. **Build Your Software:** Use the following command to initiate the building of your software,
-   replacing `[description_of_your_idea]` with your idea's description and `[project_name]` with your desired project name:
-   On Unix/Linux:
+3.  **Open `index.html` in Your Browser:**
+    *   Navigate to the directory where `index.html` is located.
+    *   Simply open `index.html` directly in your web browser (e.g., by double-clicking it or using `File > Open` in your browser).
+    *   Ensure that all associated JavaScript files (`App.js`, `AuthPage.js`, `DashboardComponent.js`, `AgentCreationComponent.js`, `AgentListComponent.js`, `AgentInteractionComponent.js`, `ChatViewComponent.js`, `ToolboxComponent.js`, `PetFormComponent.js`, `PetSpriteComponent.js`, and `gunService.js`) are in the same directory as `index.html`, or update the script paths in `index.html` if they are organized into subdirectories.
 
-   ```
-   python3 run.py --task "[description_of_your_idea]" --name "[project_name]"
-   ```
-
-   On Windows:
-
-   ```
-   python run.py --task "[description_of_your_idea]" --name "[project_name]"
-   ```
-
-6. **Run Your Software:** Once generated, you can find your software in the `WareHouse` directory under a specific
-   project folder, such as `project_name_DefaultOrganization_timestamp`. Run your software using the following command
-   within that directory:
-   On Unix/Linux:
-
-   ```
-   cd WareHouse/project_name_DefaultOrganization_timestamp
-   python3 main.py
-   ```
-
-   On Windows:
-
-   ```
-   cd WareHouse/project_name_DefaultOrganization_timestamp
-   python main.py
-   ```
+4.  **Interact with the SPA:**
+    *   You should see the login/register page. Create an account (this is handled by Gun.js).
+    *   Once logged in, you can create agents, customize pets in the toolbox, and chat with your agents.
+    *   Ensure the Python API server is running for agent interactions.
 
 ### 🐳 Quickstart with Docker
 
-- We thank [ManindraDeMel](https://github.com/ManindraDeMel) for providing Docker support. Please see [Docker Start Guide](wiki.md#docker-start).
+*(Placeholder: Docker instructions need to be updated to reflect the new SPA + API server architecture. This would involve a Docker Compose setup to run both the Python API server and a Gun.js relay peer, and serve the static frontend files.)*
 
-## ✨️ Advanced Skills
+For now, please follow the manual setup instructions above.
 
-For more detailed information, please refer to our [Wiki](wiki.md), where you can find:
+## ✨️ Advanced Skills & Customization
 
-- An introduction to all command run parameters.
-- A straightforward guide for setting up a local web visualizer demo, which can visualize real-time logs, replayed logs, and ChatChain.
-- An overview of the ChatDev framework.
-- A comprehensive introduction to all advanced parameters in ChatChain configuration.
-- Guides for customizing ChatDev, including:
-  - ChatChain: Design your own software development process (or any other process), such
-      as ``DemandAnalysis -> Coding -> Testing -> Manual``.
-  - Phase: Design your own phase within ChatChain, like ``DemandAnalysis``.
-  - Role: Defining the various agents in your company, such as the ``Chief Executive Officer``.
+The new ChatDev SPA offers several avenues for customization:
 
-## 🤗 Share Your Software
+*   **Agent Behavior:** Modify agent system prompts, roles, and LLM models directly through the UI to tailor their expertise and responses.
+*   **Pet Appearance:** Experiment with different `spriteParams` (color, shape, size) in the Toolbox to create unique visual pets for your agents.
+*   **Frontend Components:** The React-based frontend is modular. Developers can extend or modify existing components (`ChatViewComponent`, `AgentCreationComponent`, etc.) or add new ones. *(Refer to `App.js` and individual component files for structure)*.
+*   **Backend API:** The Python Flask server (`api_server.py`) can be extended with new endpoints to add more complex agent capabilities or tools.
+*   **Gun.js Data Schema:** Advanced users can explore and extend the data schemas used for agents and pets within Gun.js. *(Refer to `AgentCreationComponent.js` and `PetFormComponent.js` for current schemas)*.
 
-**Code**: We are enthusiastic about your interest in participating in our open-source project. If you come across any
-problems, don't hesitate to report them. Feel free to create a pull request if you have any inquiries or if you are prepared to share your work with us! Your contributions are highly valued. Please let me know if there's anything else
-you need assistance!
+*(Placeholder: Link to a future Wiki section on SPA Customization and Development Guide. The existing Wiki primarily covers the command-line tool.)*
+The existing [Wiki](wiki.md) provides extensive details on the original ChatDev framework, some concepts of which may still be relevant for understanding agent roles and behaviors.
 
-**Company**: Creating your own customized "ChatDev Company" is a breeze. This personalized setup involves three simple
-configuration JSON files. Check out the example provided in the ``CompanyConfig/Default`` directory. For detailed
-instructions on customization, refer to our [Wiki](wiki.md).
+## 🤗 Share Your Creations
 
-**Software**: Whenever you develop software using ChatDev, a corresponding folder is generated containing all the
-essential information. Sharing your work with us is as simple as making a pull request. Here's an example: execute the
-command ``python3 run.py --task "design a 2048 game" --name "2048"  --org "THUNLP" --config "Default"``. This will
-create a software package and generate a folder named ``/WareHouse/2048_THUNLP_timestamp``. Inside, you'll find:
+With the new ChatDev SPA, you can share:
 
-- All the files and documents related to the 2048 game software
-- Configuration files of the company responsible for this software, including the three JSON config files
-  from ``CompanyConfig/Default``
-- A comprehensive log detailing the software's building process that can be used to replay (``timestamp.log``)
-- The initial prompt used to create this software (``2048.prompt``)
+*   **Agent Designs:** The definitions of your agents (system prompts, roles, chosen models). You can share these as text or JSON.
+*   **Pet Parameters:** The JSON `spriteParams` and `toolSnippet.config` for your unique pets.
+*   **Screenshots/Videos:** Show off your interactive sessions and unique agent-pet combinations!
 
-**See community contributed software [here](Contribution.md)!**
+We encourage you to share your innovative agent designs and pet creations with the community!
+
+*(The "Code", "Company", and "Software" sub-sections from the original README are less directly applicable to the SPA's current functionality but the spirit of open contribution remains.)*
+
+**See community contributed software and ideas [here](Contribution.md)!** (This link might need updating to a new page for SPA creations).
 
 ## 👨‍💻‍ Contributors
 

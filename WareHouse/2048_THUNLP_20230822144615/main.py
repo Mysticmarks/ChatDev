@@ -10,7 +10,7 @@ class GameApp:
         self.game = Game()
         self.create_widgets()
     def create_widgets(self):
-        self.canvas = tk.Canvas(self.master, width=400, height=400, bg="white")
+        self.canvas = tk.Canvas(self.master, width=160, height=160, bg="white")
         self.canvas.pack()
         self.canvas.bind("<Key>", self.handle_keypress)
         self.canvas.focus_set()
@@ -26,11 +26,11 @@ class GameApp:
         self.update_grid()
         if self.game.is_game_over():
             self.canvas.unbind("<Key>")
-            self.canvas.create_text(200, 200, text="Game Over", font=("Arial", 24), fill="red")
+            self.canvas.create_text(80, 80, text="Game Over", font=("Arial", 24), fill="red")
     def update_grid(self):
         self.canvas.delete("all")
-        for row in range(10):
-            for col in range(10):
+        for row in range(4):
+            for col in range(4):
                 value = self.game.grid[row][col]
                 x1 = col * 40
                 y1 = row * 40
